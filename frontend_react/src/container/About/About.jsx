@@ -1,36 +1,30 @@
 import React, { useState, useEffect } from "react";
+import { urlFor, client } from "../../client";
 
 import { motion } from "framer-motion";
+
+import { AppWrap } from "../../wrapper";
 
 //styles
 import "./About.scss";
 
-import {images } from '../../constants';
+import { images } from "../../constants";
 
-const abouts = [
-  {
-    title: "Web Development",
-    description: "Yay web developer",
-    imgUrl: images.about01,
-  },
-  {
-    title: "Web Design",
-    description: "Yay web design",
-    imgUrl: "",
-  },
-  {
-    title: "UI/UX",
-    description: "Yay UI/UX",
-    imgUrl: "",
-  },
-  {
-    title: "Frontend",
-    description: "Yay frontend",
-    imgUrl: "",
-  },
-];
 
-export default function About() {
+const About = () => {
+  const [abouts, setAbouts] = useState([]);
+
+  //sanity query and fetch
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+    console.log(query)
+    client.fetch(query).then((data) => {
+      console.log(data)
+      setAbouts(data);
+      console.log(data)
+    });
+  }, []);
+
   return (
     <>
       <h2 className="head-text">
@@ -47,7 +41,7 @@ export default function About() {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.imgUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
@@ -60,3 +54,6 @@ export default function About() {
     </>
   );
 }
+
+
+export default AppWrap(About, 'about');
