@@ -5,7 +5,7 @@ import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 //components and pages
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 
 //sanity
 import { urlFor, client } from "../../client";
@@ -126,4 +126,8 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, 'work');
+export default AppWrap(
+  MotionWrap(Work, "app__works"),
+  "work",
+  "app__primarybg"
+);
