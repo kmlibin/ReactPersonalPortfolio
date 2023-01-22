@@ -3,13 +3,12 @@ import { urlFor, client } from "../../client";
 
 import { motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 
 //styles
 import "./About.scss";
 
 import { images } from "../../constants";
-
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -17,11 +16,11 @@ const About = () => {
   //sanity query and fetch
   useEffect(() => {
     const query = '*[_type == "abouts"]';
-    console.log(query)
+    console.log(query);
     client.fetch(query).then((data) => {
-      console.log(data)
+      console.log(data);
       setAbouts(data);
-      console.log(data)
+      console.log(data);
     });
   }, []);
 
@@ -53,7 +52,10 @@ const About = () => {
       </div>
     </>
   );
-}
+};
 
-
-export default AppWrap(About, 'about');
+export default AppWrap(
+  MotionWrap(About, "app__about"),
+  "about",
+  "app__whitebg"
+);
