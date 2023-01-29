@@ -14,10 +14,32 @@ import { urlFor, client } from "../../client";
 import "./Skills.scss";
 import "react-tooltip/dist/react-tooltip.css";
 
-const Skills = () => {
-  const [skills, setSkills] = useState([]);
-  const [experience, setExperience] = useState([]);
+interface ISkills {
+  bgColor: string;
+  icon: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  name: string;
+}
 
+//since the code later maps within a map, had to split into two interfaces.
+interface IWork {
+  company: string;
+  desc: string;
+  name: string;
+}
+
+interface IExperience {
+  works: IWork[];
+  year: string;
+}
+
+const Skills: React.FC = () => {
+  const [skills, setSkills] = useState<ISkills[]>([]);
+  const [experience, setExperience] = useState<IExperience[]>([]);
 
   //connect to sanity
   useEffect(() => {
@@ -25,9 +47,7 @@ const Skills = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      console.log(data);
       setExperience(data);
-      console.log(experience);
     });
 
     client.fetch(skillsQuery).then((data) => {
@@ -35,6 +55,7 @@ const Skills = () => {
     });
   }, []);
 
+  console.log(experience);
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
@@ -82,11 +103,10 @@ const Skills = () => {
                     </motion.div>
                     <Tooltip
                       anchorId={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
+                      data-tooltip-place = "top"
+                      data-tooltip-variant="#fff"
                       className="skills-tooltip"
                       content={work.desc}
-                    
                     />
                   </>
                 ))}
