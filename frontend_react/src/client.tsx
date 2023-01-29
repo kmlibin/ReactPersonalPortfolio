@@ -11,4 +11,8 @@ export const client = sanityClient({
 
 const builder = imageUrlBuilder(client);
 
-export const urlFor = ((source) => builder.image(source));
+//had to return a string from imageUrlBuilder to work with TS. builder.image does not return a string, so .url() does. 
+//then had to type source to avoid "any" type
+export const urlFor = ((source: { _ref?: string, asset?: { _ref?: string } }) => builder.image(source).url());
+
+
