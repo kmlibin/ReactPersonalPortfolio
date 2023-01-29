@@ -2,9 +2,14 @@ import React from "react";
 
 import { NavigationDots, SocialMedia } from "../components";
 
-const AppWrap = (Component, idName, classNames) =>
-  function HOC() {
-    return (
+interface IComponentProps
+ {
+  idName?: string,
+  classNames?: string
+ }
+ 
+const AppWrap = (Component: React.ComponentType<IComponentProps>, idName? : string, classNames?: string) => {
+const AppWrap: React.FC = () => (
       <div id={idName} className={`app__container ${classNames}`}>
         <SocialMedia />
         <div className="app__wrapper app__flex">
@@ -17,6 +22,8 @@ const AppWrap = (Component, idName, classNames) =>
         <NavigationDots active={idName} />
       </div>
     );
+    
+    return AppWrap;
   };
 
 export default AppWrap;
