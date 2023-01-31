@@ -13,11 +13,33 @@ import { urlFor, client } from "../../client";
 //styles
 import "./Work.scss";
 
+interface IAnimateCard {
+  y: number;
+  opacity: number;
+}
+
+interface IWorks {
+  codeLink: string;
+  description: string;
+  imgUrl: {
+    asset: {
+      _ref: string;
+    };
+  };
+  projectLink: string;
+  tags: [string[] | string];
+  title: string;
+  name?: string;
+}
+
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [animateCard, setAnimateCard] = useState<IAnimateCard>({
+    y: 0,
+    opacity: 1,
+  });
+  const [works, setWorks] = useState<IWorks[]>([]);
+  const [filterWork, setFilterWork] = useState<IWorks[]>([]);
 
   //connect to sanity
   useEffect(() => {
@@ -28,20 +50,20 @@ const Work = () => {
     });
   }, []);
 
-  const handleWorkFilter = (item) => {
+
+
+  const handleWorkFilter = (item: string) => {
     setActiveFilter(item);
-    setAnimateCard([{y: 100, opacity: 0}]);
+    setAnimateCard({ y: 100, opacity: 0 });
 
     setTimeout(() => {
-      setAnimateCard([{y: 0, opacity: 1}]);
-      if( item === 'All') {
+      setAnimateCard({ y: 0, opacity: 1 });
+      if (item === "All") {
         setFilterWork(works);
-        console.log(filterWork)
-      }
-      else {
+      } else {
         setFilterWork(works.filter((work) => work.tags.includes(item)));
       }
-    }, 500)
+    }, 500);
   };
 
   return (
@@ -75,46 +97,42 @@ const Work = () => {
             <div className="app__work-img app__flex">
               <img src={urlFor(work.imgUrl)} alt={work.name} />
               <motion.div
-              whileHover={{opacity: [0, 1]}}
-              transition= {{duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5}}
-              className="app__work-hover app__flex"
+                whileHover={{ opacity: [0, 1] }}
+                transition={{
+                  duration: 0.25,
+                  ease: "easeInOut",
+                  staggerChildren: 0.5,
+                }}
+                className="app__work-hover app__flex"
               >
-
-            <a
-            href={work.projectLink}
-            target="_blank"
-            rel="noreferrer"
-            >
-              <motion.div
-               whileInView ={{scale: [0,1]}}
-               whileHover={{scale: [1, 0.9]}}
-               transition= {{duration: 0.25}}
-               className="app__flex"
-              >
-                <AiFillEye />
-              </motion.div>
-
-            </a>
-            <a
-            href={work.codeLink}
-            target="_blank"
-            rel="noreferrer"
-            >
-              <motion.div
-               whileInView ={{scale: [0,1]}}
-               whileHover={{scale: [1, 0.9]}}
-               transition= {{duration: 0.25}}
-               className="app__flex"
-              >
-                <AiFillGithub />
-              </motion.div>
-
-            </a>
+                <a href={work.projectLink} target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <AiFillEye />
+                  </motion.div>
+                </a>
+                <a href={work.codeLink} target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <AiFillGithub />
+                  </motion.div>
+                </a>
               </motion.div>
             </div>
             <div className="app__work-content app__flex">
               <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{marginTop:10}}> {work.description}</p>
+              <p className="p-text" style={{ marginTop: 10 }}>
+                {" "}
+                {work.description}
+              </p>
               <div className="app__work-tag app__flex">
                 <p className="p-text">{work.tags[0]}</p>
               </div>
