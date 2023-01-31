@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-//images and icons import
+//images
 import { images } from "../../constants";
-import { HiMenuAlt4, HiX } from "react-icons/hi";
+
+//libraries
 import { motion } from "framer-motion";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
 
 //styles
 import "./Navbar.scss";
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
 
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -51,3 +53,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;

@@ -1,27 +1,26 @@
-//2 fixes
-
 import React, { useState, useEffect } from "react";
-import { urlFor, client } from "../../client";
 
+//libraries
 import { motion } from "framer-motion";
 
+//components, pages, wrappers
 import { AppWrap, MotionWrap } from "../../wrapper";
+
+//sanity
+import { urlFor, client } from "../../client";
 
 //styles
 import "./About.scss";
 
-import { images } from "../../constants";
-
-
-const About = () => {
+const About: React.FC = () => {
   //create a type for this dataset?
   const [abouts, setAbouts] = useState<any>([]);
 
   //sanity query and fetch
   useEffect(() => {
-    const query : string = '*[_type == "abouts"]';
-    console.log(query);
-    client.fetch(query).then((data : any) => {
+    const query: string = '*[_type == "abouts"]';
+
+    client.fetch(query).then((data: any) => {
       console.log(data);
       setAbouts(data);
       console.log(data);
@@ -36,7 +35,7 @@ const About = () => {
       </h2>
 
       <div className="app__profiles">
-        {abouts.map((about : any, index: number) => (
+        {abouts.map((about: any, index: number) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
@@ -44,7 +43,6 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            
             <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}

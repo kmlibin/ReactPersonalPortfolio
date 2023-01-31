@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
+//import images
 import { images } from "../../constants";
+
+//components, pages, wrappers
 import { AppWrap, MotionWrap } from "../../wrapper";
 
+//sanity
 import { client } from "../../client";
 
 //styles
 import "./Footer.scss";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const [formData, setFormData] = useState<{
     name: string;
     email: string;

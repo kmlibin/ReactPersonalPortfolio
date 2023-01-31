@@ -1,8 +1,12 @@
 import React from "react";
 
+//libraries
 import { motion } from "framer-motion";
+
+//images
 import { images } from "../../constants";
 
+//components, pages, wrappers
 import { AppWrap } from "../../wrapper";
 
 //styles
@@ -19,7 +23,7 @@ const scaleVariants = {
   },
 };
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className="app__header app__flex">
       <motion.div
@@ -58,7 +62,7 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        variant={scaleVariants}
+        variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
@@ -70,8 +74,7 @@ const Header = () => {
       </motion.div>
     </div>
   );
-}
-
+};
 
 //pass in header to appwrap, and home as the id
-export default AppWrap(Header, 'home');
+export default AppWrap(Header, "home");

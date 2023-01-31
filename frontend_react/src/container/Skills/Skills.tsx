@@ -4,8 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Tooltip } from "react-tooltip";
 
-//components and pages
+//components, pages, wrappers
 import { AppWrap, MotionWrap } from "../../wrapper";
+
+//interfaces
+import { ISkills, IExperience } from "../../models/model";
 
 //sanity
 import { urlFor, client } from "../../client";
@@ -13,29 +16,6 @@ import { urlFor, client } from "../../client";
 //styles
 import "./Skills.scss";
 import "react-tooltip/dist/react-tooltip.css";
-
-interface ISkills {
-  bgColor: string;
-  icon: {
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
-  name: string;
-}
-
-//since the code later maps within a map, had to split into two interfaces.
-interface IWork {
-  company: string;
-  desc: string;
-  name: string;
-}
-
-interface IExperience {
-  works: IWork[];
-  year: string;
-}
 
 const Skills: React.FC = () => {
   const [skills, setSkills] = useState<ISkills[]>([]);
@@ -55,7 +35,6 @@ const Skills: React.FC = () => {
     });
   }, []);
 
-  console.log(experience);
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
@@ -103,7 +82,7 @@ const Skills: React.FC = () => {
                     </motion.div>
                     <Tooltip
                       anchorId={work.name}
-                      data-tooltip-place = "top"
+                      data-tooltip-place="top"
                       data-tooltip-variant="#fff"
                       className="skills-tooltip"
                       content={work.desc}

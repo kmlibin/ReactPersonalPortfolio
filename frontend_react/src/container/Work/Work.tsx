@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
+//interfaces
+import { IWorks, IAnimateCard } from "../../models/model";
+
 //components and pages
 import { AppWrap, MotionWrap } from "../../wrapper";
 
@@ -12,25 +15,6 @@ import { urlFor, client } from "../../client";
 
 //styles
 import "./Work.scss";
-
-interface IAnimateCard {
-  y: number;
-  opacity: number;
-}
-
-interface IWorks {
-  codeLink: string;
-  description: string;
-  imgUrl: {
-    asset: {
-      _ref: string;
-    };
-  };
-  projectLink: string;
-  tags: [string[] | string];
-  title: string;
-  name?: string;
-}
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState<string>("All");
@@ -49,8 +33,6 @@ const Work = () => {
       setFilterWork(data);
     });
   }, []);
-
-
 
   const handleWorkFilter = (item: string) => {
     setActiveFilter(item);

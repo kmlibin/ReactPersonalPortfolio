@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
+//interfaces
+import { ITestimonial, IBrand } from "../../models/model";
+
 //components and pages
 import { AppWrap, MotionWrap } from "../../wrapper";
 
@@ -12,27 +15,6 @@ import { urlFor, client } from "../../client";
 
 //styles
 import "./Testimonial.scss";
-
-interface ITestimonial {
-  company: string,
-  feedback: string,
-  imgurl: {
-    asset: {
-      _ref: string
-    }
-  },
-  name: string
-}
-
-interface IBrand {
-  imgUrl: {
-    asset: {
-      _ref: string
-    },
-  },
-  name: string,
-  _id: string,
-}
 
 const Testimonial: React.FC = () => {
   const [brands, setBrands] = useState<IBrand[]>([]);
@@ -51,14 +33,12 @@ const Testimonial: React.FC = () => {
   useEffect(() => {
     client.fetch(query).then((data) => {
       setTestimonials(data);
-      
     });
 
     client.fetch(brandsQuery).then((data) => {
       setBrands(data);
     });
   }, []);
- 
 
   //will show one testimonial at a time, based on index
   const test: ITestimonial = testimonials[currentIndex];
@@ -78,11 +58,29 @@ const Testimonial: React.FC = () => {
           </div>
 
           <div className="app__testimonial-btns app__flex">
-            <div className="app__flex" onClick={() => handleClick(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1)}>
+            <div
+              className="app__flex"
+              onClick={() =>
+                handleClick(
+                  currentIndex === 0
+                    ? testimonials.length - 1
+                    : currentIndex - 1
+                )
+              }
+            >
               <HiChevronLeft />
             </div>
 
-            <div className="app__flex" onClick={() => handleClick(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1)}>
+            <div
+              className="app__flex"
+              onClick={() =>
+                handleClick(
+                  currentIndex === testimonials.length - 1
+                    ? 0
+                    : currentIndex + 1
+                )
+              }
+            >
               <HiChevronRight />
             </div>
           </div>
@@ -93,7 +91,7 @@ const Testimonial: React.FC = () => {
         {brands.map((brand) => (
           <motion.div
             whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5, type: 'tween' }}
+            transition={{ duration: 0.5, type: "tween" }}
             key={brand._id}
           >
             <img src={urlFor(brand.imgUrl)} alt={brand.name} />
@@ -105,7 +103,7 @@ const Testimonial: React.FC = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Testimonial, 'app__testimonial'),
-  'testimonial',
-  'app__primarybg',
+  MotionWrap(Testimonial, "app__testimonial"),
+  "testimonial",
+  "app__primarybg"
 );
