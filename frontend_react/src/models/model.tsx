@@ -5,6 +5,11 @@ interface IAsset {
   };
 }
 
+export interface IComponentProps {
+  idName?: string;
+  classNames?: string;
+}
+
 export interface ISkills {
   bgColor: string;
   icon: IAsset;
