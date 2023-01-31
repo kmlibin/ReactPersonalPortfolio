@@ -13,43 +13,66 @@ import { urlFor, client } from "../../client";
 //styles
 import "./Testimonial.scss";
 
-const Testimonial = () => {
-  const [brands, setBrands] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface ITestimonial {
+  company: string,
+  feedback: string,
+  imgurl: {
+    asset: {
+      _ref: string
+    }
+  },
+  name: string
+}
+
+interface IBrand {
+  imgUrl: {
+    asset: {
+      _ref: string
+    },
+  },
+  name: string,
+  _id: string,
+}
+
+const Testimonial: React.FC = () => {
+  const [brands, setBrands] = useState<IBrand[]>([]);
+  const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   //handles moving from one testimonial to another
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     setCurrentIndex(index);
   };
 
   //set up queries and connect to sanity
-  const query = '*[_type == "testimonials"]';
-  const brandsQuery = '*[_type == "brands"]';
+  const query: string = '*[_type == "testimonials"]';
+  const brandsQuery: string = '*[_type == "brands"]';
 
   useEffect(() => {
     client.fetch(query).then((data) => {
       setTestimonials(data);
+      
     });
 
     client.fetch(brandsQuery).then((data) => {
       setBrands(data);
     });
   }, []);
+ 
 
   //will show one testimonial at a time, based on index
-  const test = testimonials[currentIndex];
+  const test: ITestimonial = testimonials[currentIndex];
   return (
     <>
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img src={urlFor(testimonials[currentIndex].imgurl)} alt={testimonials[currentIndex].name} />
+            <img src={urlFor(test.imgurl)} alt={test.name} />
             <div className="app__testimonial-content">
-              <p className="p-text">{testimonials[currentIndex].feedback}</p>
+              <p className="p-text">{test.feedback}</p>
               <div>
-                <h4 className="bold-text">{testimonials[currentIndex].name}</h4>
-                <h5 className="p-text">{testimonials[currentIndex].company}</h5>
+                <h4 className="bold-text">{test.name}</h4>
+                <h5 className="p-text">{test.company}</h5>
               </div>
             </div>
           </div>
