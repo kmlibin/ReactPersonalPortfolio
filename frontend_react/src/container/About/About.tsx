@@ -30,8 +30,8 @@ const About: React.FC = () => {
   return (
     <>
       <h2 className="head-text">
-        I know that <span>good dev</span>
-        <br /> means <span>good business</span>
+        Solving Complex Problems with Elegant <br />
+        <span> Frontend Solutions</span>
       </h2>
 
       <div className="app__profiles">
@@ -60,5 +60,5 @@ const About: React.FC = () => {
 export default AppWrap(
   MotionWrap(About, "app__about"),
   "about",
-  "app__whitebg"
+  "app__primarybg"
 );
