@@ -10,6 +10,32 @@
   .app__primarybg {
     background-color: var(--primary-color);
   }
+
+  .app__footerbg {
+    background: linear-gradient(74deg, #a0e9b4, #0c7b59, #a0e9b4);
+    background-size: 600% 600%;
+
+    -webkit-animation:  GradientChange 20s ease infinite;
+    -moz-animation:  GradientChange 20s ease infinite;
+    animation:  GradientChange 20s ease infinite;
+}
+
+@-webkit-keyframes  GradientChange {
+    0%{background-position:0% 76%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 76%}
+}
+@-moz-keyframes  GradientChange{
+    0%{background-position:0% 76%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 76%}
+}
+@keyframes  GradientChange {
+    0%{background-position:0% 76%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 76%}
+}
+  
   
   .app__container {
     width: 100%;
@@ -185,3 +211,28 @@
       padding: 2rem;
     }
   }
+
+
+//   background: linear-gradient(74deg, #a0e9b4, #0c7b59, #064b3a, #a0e9b4);
+//   background-size: 800% 800%;
+
+//   -webkit-animation:  GradientChange 20s ease infinite;
+//   -moz-animation:  GradientChange 20s ease infinite;
+//   animation:  GradientChange 20s ease infinite;
+// }
+
+// @-webkit-keyframes  GradientChange {
+//   0%{background-position:0% 76%}
+//   50%{background-position:100% 25%}
+//   100%{background-position:0% 76%}
+// }
+// @-moz-keyframes  GradientChange{
+//   0%{background-position:0% 76%}
+//   50%{background-position:100% 25%}
+//   100%{background-position:0% 76%}
+// }
+// @keyframes  GradientChange {
+//   0%{background-position:0% 76%}
+//   50%{background-position:100% 25%}
+//   100%{background-position:0% 76%}
+// }
