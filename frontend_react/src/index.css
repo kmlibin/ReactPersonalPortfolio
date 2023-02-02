@@ -1,15 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 :root {
-  --font-base: "DM Sans", sans-serif;
+  --font-base: "Raleway", sans-serif;
+  --logo-font: "Monoton";
 
-  --primary-color: #edf2f8;
-  --secondary-color: #313bac;
-  --black-color: #030303;
+  --primary-color: rgba(160, 233, 180, 0.5);
+  --secondary-color: #0c7b59;
+  --darker-secondary: #064b3a;
+  --black-color: #333333;
   --lightGray-color: #e4e4e4;
   --gray-color: #6b7688;
-  --brown-color: #46364a;
   --white-color: #ffffff;
+  --input-color: #f2f7fb;
 }
 
 * {
