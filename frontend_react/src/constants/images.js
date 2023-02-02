@@ -23,7 +23,7 @@ import about02 from '../assets/about02.png';
 import about03 from '../assets/about03.png';
 import about04 from '../assets/about04.png';
 
-import profile from '../assets/profile.png';
+import profile from '../assets/kmlibincat.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.png';
 
@@ -34,6 +34,10 @@ import bolt from '../assets/bolt.png';
 import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
+import hey from '../assets/hey.png';
+import klibin2 from '../assets/klibin2.png';
+import background from '../assets/background.jpg'
+import circle2 from '../assets/circle2.png'
 
 export default {
   email,
@@ -69,4 +73,8 @@ export default {
   nb,
   skype,
   spotify,
+  hey,
+  klibin2,
+  background,
+  circle2
 };
