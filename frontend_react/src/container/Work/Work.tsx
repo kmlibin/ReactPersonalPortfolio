@@ -51,10 +51,10 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-        My creative <span>portfolio</span>
+         <span>Stuff </span> I did
       </h2>
       <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
+        {["Interactive", "Web App", "Responsive Design", "React JS", "API Integration", "All"].map(
           (item, index) => (
             <div
               key={index}
@@ -129,5 +129,5 @@ const Work = () => {
 export default AppWrap(
   MotionWrap(Work, "app__works"),
   "work",
-  "app__primarybg"
+  "app__whitebg"
 );
