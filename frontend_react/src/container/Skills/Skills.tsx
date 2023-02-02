@@ -75,7 +75,7 @@ const Skills: React.FC = () => {
                       data-for={work.name}
                       key={work.name}
                     >
-                      <h4 className="bold-text" id={work.name}>
+                      <h4 id={work.name}>
                         {work.name}
                       </h4>
                       <p className="p-text">{work.company}</p>
@@ -101,5 +101,5 @@ const Skills: React.FC = () => {
 export default AppWrap(
   MotionWrap(Skills, "app__skills"),
   "skills",
-  "app__whitebg"
+  "app__primarybg"
 );
