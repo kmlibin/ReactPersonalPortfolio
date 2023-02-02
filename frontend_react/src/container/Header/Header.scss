@@ -1,6 +1,6 @@
 #home {
   position: relative;
-  background: url("../../assets/bgIMG.png");
+  background: url("../../assets/background.jpg");
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
@@ -55,6 +55,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
+  ;
 
   .badge-cmp,
   .tag-cmp {
@@ -64,6 +65,7 @@
     flex-direction: row;
     width: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--input-color)
   }
 
   .tag-cmp {
