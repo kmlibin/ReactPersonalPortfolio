@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
         </motion.div>
         <div className="app__skills-exp">
           {experience.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
+            <motion.div className="app__skills-exp-item" key={experience._id}>
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
@@ -73,11 +73,9 @@ const Skills: React.FC = () => {
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
-                      key={work.name}
+                      key={work._key}
                     >
-                      <h4 id={work.name}>
-                        {work.name}
-                      </h4>
+                      <h4 id={work.name}>{work.name}</h4>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
                     <Tooltip
