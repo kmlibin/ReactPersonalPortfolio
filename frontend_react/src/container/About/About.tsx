@@ -32,7 +32,7 @@ const About: React.FC = () => {
       <h2 className="head-text">
         I bake <span>code</span>, not cookies <br />
       </h2>
-      <p style={{fontSize: 12}}>(...but I do bake cookies)</p>
+      <p style={{ fontSize: 14 }}>(...actually I do bake cookies)</p>
 
       <div className="app__profiles">
         {abouts.map((about: any, index: number) => (
