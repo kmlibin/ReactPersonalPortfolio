@@ -21,3 +21,7 @@
   margin: 0;
   scroll-behavior: smooth;
 }
+
+html {
+  max-height: 100%;
+}
