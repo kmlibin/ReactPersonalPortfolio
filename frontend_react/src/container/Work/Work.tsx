@@ -51,7 +51,7 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-         <span>Stuff </span> I did
+         Tech <span>Stuff </span> I did
       </h2>
       <div className="app__work-filter">
         {["Interactive", "Responsive Design", "ReactJS", "TypeScript", "API Integration", "All"].map(
