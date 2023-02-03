@@ -20,12 +20,15 @@ export interface ISkills {
 export interface IWork {
   company: string;
   desc: string;
-  name: string;
+  name: string; 
+  _key: string;
 }
 
 export interface IExperience {
   works: IWork[];
   year: string;
+  _id: string;
+ 
 }
 
 //for testimonial.tsx
