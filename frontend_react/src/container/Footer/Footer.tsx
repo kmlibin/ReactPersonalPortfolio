@@ -54,8 +54,8 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <h2 className="head-text">Coffee and chat with me</h2>
-      <div className="app__footer-cards">
+      <h2 className="head-text">Let's Get Acquainted!</h2>
+      {/* <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
           <a href="mailto:hello@kelli.com" className="p-text">
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             123456789
           </a>
         </div>
-      </div>
+      </div> */}
 
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
