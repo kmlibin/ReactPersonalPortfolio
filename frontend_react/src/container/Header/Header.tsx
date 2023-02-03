@@ -40,8 +40,8 @@ const Header: React.FC = () => {
             </div>
           </div>
           <div className="tag-cmp app__flex">
-            <p className="p-text">Web Developer</p>
-            <p className="p-text">Freelancer</p>
+            <p className="p-text">Frontend Developer</p>
+            <p className="p-text">Keen Bread Baker</p>
             <p className="p-text">Cat Herder</p>
           </div>
         </div>
