@@ -30,9 +30,9 @@ const About: React.FC = () => {
   return (
     <>
       <h2 className="head-text">
-        Solving Complex Problems with Elegant <br />
-        <span> Frontend Solutions</span>
+        I bake <span>code</span>, not cookies <br />
       </h2>
+      <p style={{fontSize: 12}}>(...but I do bake cookies)</p>
 
       <div className="app__profiles">
         {abouts.map((about: any, index: number) => (
