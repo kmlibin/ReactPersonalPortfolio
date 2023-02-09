@@ -2,7 +2,6 @@
   position: relative;
   background: url("../../assets/background.jpg");
   background-size: cover;
-  background-repeat: repeat;
   background-position: center;
 
   .app__wrapper {
@@ -55,8 +54,6 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  ;
-
   .badge-cmp,
   .tag-cmp {
     padding: 1rem 2rem;
@@ -65,7 +62,7 @@
     flex-direction: row;
     width: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: var(--input-color)
+    background-color: var(--input-color);
   }
 
   .tag-cmp {
@@ -78,20 +75,19 @@
       text-align: right;
     }
   }
-    span {
-      font-size: 2.5rem;
+  span {
+    font-size: 2.5rem;
 
-      @media screen and (min-width: 2000px) {
-        font-size: 5rem;
-      }
-    }
-
-    @media screen and (max-width: 1200px) {
-      justify-content: flex-start;
-      align-items: flex-start;
+    @media screen and (min-width: 2000px) {
+      font-size: 5rem;
     }
   }
 
+  @media screen and (max-width: 1200px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
 
 .app__header-circles {
   flex: 0.75;
@@ -169,9 +165,10 @@
   position: relative;
 
   img {
-    width: 100%;
+    width: 110%;
     object-fit: contain;
     z-index: 1;
+   
   }
 
   .overlay_circle {
@@ -179,9 +176,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    padding-right: 1em;
     z-index: 0;
     width: 100%;
     height: 90%;
+  
 
     @media screen and (max-width: 1200px) {
       margin: 2rem 0;

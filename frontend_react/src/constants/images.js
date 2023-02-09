@@ -9,8 +9,8 @@ import react from "../assets/react.png";
 import redux from "../assets/redux.png";
 import sass from "../assets/sass.png";
 import typescript from "../assets/typescript.png";
-import profile from "../assets/kmlibincat.png";
-import circle from "../assets/circle.svg";
+import profile from "../assets/kelli.png";
+import circle from "../assets/circle1.png";
 import logo from "../assets/klogo.png";
 import background from "../assets/background.jpg";
 
