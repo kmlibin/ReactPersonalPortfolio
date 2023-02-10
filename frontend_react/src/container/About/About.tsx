@@ -35,7 +35,7 @@ const About: React.FC = () => {
       <p style={{ fontSize: 14 }}>(...actually I do bake cookies)</p>
 
       <div className="app__profiles">
-        {abouts.map((about: any, index: number) => (
+        {abouts?.map((about: any, index: number) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
