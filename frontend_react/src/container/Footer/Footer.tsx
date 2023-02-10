@@ -52,23 +52,11 @@ const Footer: React.FC = () => {
     });
   };
 
+  console.log(formData)
+
   return (
     <>
       <h2 className="head-text">Let's Get Acquainted!</h2>
-      {/* <div className="app__footer-cards">
-        <div className="app__footer-card">
-          <img src={images.email} alt="email" />
-          <a href="mailto:hello@kelli.com" className="p-text">
-            hello@kelli.com
-          </a>
-        </div>
-        <div className="app__footer-card">
-          <img src={images.mobile} alt="mobile" />
-          <a href="tel: +1 (123) 456-789" className="p-text">
-            123456789
-          </a>
-        </div>
-      </div> */}
 
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
@@ -101,7 +89,7 @@ const Footer: React.FC = () => {
               placeholder="your message"
               value={message}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
-                setFormData({ ...formData, [name]: e.target.value })
+                setFormData({ ...formData, message: e.target.value })
               }
             />
           </div>
