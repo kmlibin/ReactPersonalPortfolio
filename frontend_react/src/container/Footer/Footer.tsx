@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-//import images
-import { images } from "../../constants";
-
 //components, pages, wrappers
 import { AppWrap, MotionWrap } from "../../wrapper";
 
