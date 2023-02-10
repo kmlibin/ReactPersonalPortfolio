@@ -52,7 +52,6 @@ const Footer: React.FC = () => {
     });
   };
 
-  console.log(formData)
 
   return (
     <>
