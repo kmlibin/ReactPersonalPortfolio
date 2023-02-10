@@ -53,10 +53,11 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <h2 className="head-text">Let's Get Acquainted!</h2>
+      
 
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
+          <h2 className="head-text">Let's Get Acquainted!</h2>
           <div className="app__flex">
             <input
               className="p-text"
