@@ -58,6 +58,8 @@ const Footer: React.FC = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <h2 className="head-text">Let's Get Acquainted!</h2>
+          <form name="contact">
+          <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input
               className="p-text"
@@ -94,6 +96,7 @@ const Footer: React.FC = () => {
           <button type="button" className="p-text" onClick={handleSubmit}>
             {loading ? "Sending..." : "Send Message"}
           </button>
+          </form>
         </div>
       ) : (
         <div>

@@ -16,7 +16,14 @@
   h2 {
     margin-bottom: 1em;
   }
+form {
 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
   div {
     width: 100%;
 
@@ -56,7 +63,8 @@
     border-radius: 10px;
     border: 2px solid var(--input-color);
     background-color: var(--secondary-color);
-
+    min-width: 20%;
+    text-align: center;
     font-weight: 500;
     color: var(--white-color);
     outline: none;
@@ -68,6 +76,11 @@
 
     &:hover {
       background-color:#064b3a;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      
     }
   }
 
