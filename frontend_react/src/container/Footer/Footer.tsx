@@ -32,7 +32,8 @@ const Footer: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (): void => {
+  const handleSubmit = (e:any): void => {
+    e.preventDefault()
     setLoading(true);
 
     //creates object to send to sanity
