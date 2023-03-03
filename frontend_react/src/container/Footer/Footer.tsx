@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <h2 className="head-text">Let's Get Acquainted!</h2>
-          <form name="contact" method="POST" data-netlify="true" >
+          <form name="contact" method="POST" data-netlify="true" onClick={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               }
             />
           </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
+          <button type="submit" className="p-text">
             {loading ? "Sending..." : "Send Message"}
           </button>
           </form>
