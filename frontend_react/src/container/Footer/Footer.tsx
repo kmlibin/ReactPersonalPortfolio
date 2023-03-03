@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <h2 className="head-text">Let's Get Acquainted!</h2>
-          <form name="contact" method="POST" data-netlify="true" onClick={handleSubmit}>
+          <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input
