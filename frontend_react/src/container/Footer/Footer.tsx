@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <h2 className="head-text">Let's Get Acquainted!</h2>
-          <form name="contact">
+          <form name="contact" method="post">
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input
