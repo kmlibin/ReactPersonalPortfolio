@@ -32,9 +32,28 @@ const Footer: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (): void => {
-    
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault()
     setLoading(true);
+    
+    //URL-encode the form data for netlify
+    const encode = (data: { [key: string]: string }): string => {
+      return Object.keys(data)
+        .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    };
+
+    try {
+      // send data to Netlify
+      const netlifyResponse = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formData }),
+      });
+  
+      if (!netlifyResponse.ok) {
+        throw new Error("Network response was not ok");
+      }
 
     //creates object to send to sanity
     const contact = {
@@ -48,6 +67,13 @@ const Footer: React.FC = () => {
       setLoading(false);
       setIsFormSubmitted(true);
     });
+
+    setIsFormSubmitted(true)
+  }catch (error) {
+    console.error(error)
+  } finally {
+    setLoading(false)
+  }
 
   };
 
