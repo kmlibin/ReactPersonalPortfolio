@@ -32,8 +32,8 @@ const Footer: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e:any): void => {
-    e.preventDefault()
+  const handleSubmit = (): void => {
+    
     setLoading(true);
 
     //creates object to send to sanity
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <h2 className="head-text">Let's Get Acquainted!</h2>
-          <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+          <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} action="/">
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input
