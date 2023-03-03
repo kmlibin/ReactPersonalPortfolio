@@ -20,10 +20,12 @@
     <title>KML</title>
   </head>
   <body>
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <form name="contact" method="post" netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
+      <button type="submit">Send</button>
+      <input type="hidden" name="form-name" value="contact" />
     </form>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
