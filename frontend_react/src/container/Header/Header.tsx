@@ -35,12 +35,12 @@ const Header: React.FC = () => {
           <div className="badge-cmp app__flex">
             <span>👋🏻</span>
             <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Hello, I am </p>
+              <p className="p-text">Hey, I'm </p>
               <h1 className="head-text">Kelli</h1>
             </div>
           </div>
           <div className="tag-cmp app__flex">
-            <p className="p-text">Frontend Developer</p>
+            <p className="p-text">FullStack / Frontend Dev</p>
             <p className="p-text">Keen Bread Baker</p>
             <p className="p-text">Cat Herder</p>
           </div>
