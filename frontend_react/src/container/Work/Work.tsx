@@ -54,7 +54,7 @@ const Work = () => {
          Tech <span>Stuff </span> I did
       </h2>
       <div className="app__work-filter">
-        {["Interactive", "Responsive Design", "ReactJS", "TypeScript", "API Integration", "All"].map(
+        {["Interactive", "Responsive Design", "ReactJS", "NodeJS", "TypeScript", "API Integration", "All"].map(
           (item, index) => (
             <div
               key={index}
