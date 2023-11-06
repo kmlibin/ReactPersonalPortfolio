@@ -1,4 +1,5 @@
 import email from "../assets/email.png";
+import nodelogo from '../assets/nodelogo.png';
 import mobile from "../assets/mobile.png";
 import css from "../assets/css.png";
 import git from "../assets/git.png";
@@ -30,4 +31,5 @@ export default {
   circle,
   logo,
   background,
+  nodelogo
 };
