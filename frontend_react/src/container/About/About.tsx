@@ -21,9 +21,7 @@ const About: React.FC = () => {
     const query: string = '*[_type == "abouts"]';
 
     client.fetch(query).then((data: any) => {
-      console.log(data);
       setAbouts(data);
-      console.log(data);
     });
   }, []);
 
@@ -35,7 +33,7 @@ const About: React.FC = () => {
       <p style={{ fontSize: 14 }}>(...actually I do bake cookies)</p>
 
       <div className="app__profiles">
-        {abouts?.map((about: any, index: number) => (
+        {abouts.map((about: any, index: number) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
