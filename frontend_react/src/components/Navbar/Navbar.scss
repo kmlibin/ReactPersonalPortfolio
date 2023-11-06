@@ -1,9 +1,9 @@
 .app__navbar {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -13,17 +13,19 @@
 }
 
 .app__navbar-logo {
+  position: absolute;
+  left: 2rem;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-h2 {
-  font-family: var(--logo-font);
-  font-size: 48px;
-  color: var(--secondary-color);
-  letter-spacing: .5rem;
-  font-weight: 100;
-  line-height:0%;
-}
+
+  h2 {
+    font-family: var(--logo-font);
+    font-size: 48px;
+    color: var(--secondary-color);
+    letter-spacing: 0.5rem;
+    font-weight: 100;
+    line-height: 0%;
+  }
   img {
     width: 200px;
     height: auto;
@@ -85,7 +87,8 @@ h2 {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
+  right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
