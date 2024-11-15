@@ -51,22 +51,29 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-         Tech <span>Stuff </span> I did
+        Tech <span>Stuff </span> I did
       </h2>
       <div className="app__work-filter">
-        {["MERN Stack", "Responsive Design", "ReactJS", "NodeJS", "TypeScript", "API Integration", "All"].map(
-          (item, index) => (
-            <div
-              key={index}
-              onClick={() => handleWorkFilter(item)}
-              className={`app__work-filter-item app__flex p-text ${
-                activeFilter === item ? "item-active" : ""
-              }`}
-            >
-              {item}
-            </div>
-          )
-        )}
+        {[
+          "MERN Stack",
+          "Responsive Design",
+          "NextJS",
+          "ReactJS",
+          "NodeJS",
+          "TypeScript",
+          "API Integration",
+          "All",
+        ].map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleWorkFilter(item)}
+            className={`app__work-filter-item app__flex p-text ${
+              activeFilter === item ? "item-active" : ""
+            }`}
+          >
+            {item}
+          </div>
+        ))}
       </div>
 
       <motion.div
@@ -87,26 +94,32 @@ const Work = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
+                {!work.codeLink && !work.projectLink ? (
+                  <p style={{ color: "white" }}>Coming Soon!</p>
+                ) : (
+                  <>
+                    <a href={work.projectLink} target="_blank" rel="noreferrer">
+                      <motion.div
+                        whileInView={{ scale: [0, 1] }}
+                        whileHover={{ scale: [1, 0.9] }}
+                        transition={{ duration: 0.25 }}
+                        className="app__flex"
+                      >
+                        <AiFillEye />
+                      </motion.div>
+                    </a>
+                    <a href={work.codeLink} target="_blank" rel="noreferrer">
+                      <motion.div
+                        whileInView={{ scale: [0, 1] }}
+                        whileHover={{ scale: [1, 0.9] }}
+                        transition={{ duration: 0.25 }}
+                        className="app__flex"
+                      >
+                        <AiFillGithub />
+                      </motion.div>
+                    </a>
+                  </>
+                )}
               </motion.div>
             </div>
             <div className="app__work-content app__flex">
@@ -126,8 +139,4 @@ const Work = () => {
   );
 };
 
-export default AppWrap(
-  MotionWrap(Work, "app__works"),
-  "work",
-  "app__whitebg"
-);
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__whitebg");
