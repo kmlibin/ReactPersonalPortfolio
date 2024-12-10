@@ -61,6 +61,7 @@ const Work = () => {
           "ReactJS",
           "NodeJS",
           "TypeScript",
+          "Client Site",
           "API Integration",
           "All",
         ].map((item, index) => (
